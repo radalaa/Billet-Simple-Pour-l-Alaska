@@ -35,4 +35,17 @@ class PostsController extends BackController
     // On ajoute la variable $listePosts à la vue.
     $this->page->addVar('listePosts', $listePosts);
   }
+
+  public function executeShow(HTTPRequest $request)
+  {
+    $posts = $this->managers->getManagerOf('Posts')->getUnique($request->getData('id'));
+    
+    if (empty($posts))
+    {
+      $this->app->httpResponse()->redirect404();
+    }
+    
+    $this->page->addVar('title', $posts->titre());
+    $this->page->addVar('posts', $posts);
+  }
 }
