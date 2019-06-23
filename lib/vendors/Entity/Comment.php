@@ -8,6 +8,7 @@ class Comment extends Entity
   protected $auteur,
             $contenu,
             $online,
+            $signaler,
             $date,
             $posts;
 
@@ -52,6 +53,12 @@ class Comment extends Entity
     $this->online = $online;
   }
 
+  public function setSignaler($signaler)
+  {
+  
+    $this->signaler = $signaler;
+  }
+
   public function setDate(\DateTime $date)
   {
     $this->date = $date;
@@ -77,6 +84,11 @@ class Comment extends Entity
     public function online()
   {
     return $this->online;
+  }
+
+  public function signaler()
+  {
+    return $this->signaler;
   }
 
   public function date()
