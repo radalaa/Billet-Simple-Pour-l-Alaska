@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Created by PhpStorm.
@@ -20,15 +19,17 @@
   </div>
 <div class="amin-section container">
 
+<?php //var_dump($comment); die(); ?>
 
-
-<h2>Modifier un commentaire</h2>
+<h2>Signaler le commenatire</h2>
 <form action="" method="post">
-  <p>
-    <?= $form ?>
+
+  	<label>Posté par  <?= $comment['auteur']; ?> le  <?= $comment['date']; ?></label> <br>
+  	<label>Contenu : </label> <?= $comment->contenu(); ?>
     
-    <input type="submit" value="Valider" />  <a href="commentaires" value="Annuler" />Annuler</a>
-  </p>
+    
+    <input type="submit" value="Signaler" />
+
 </form>
 
 </div>

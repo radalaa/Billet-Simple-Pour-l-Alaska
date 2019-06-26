@@ -1,7 +1,7 @@
 <?php
 namespace OCFram;
 
-class HTTPResponse
+class HTTPResponse extends ApplicationComponent
 {
   protected $page;
 
@@ -18,19 +18,19 @@ class HTTPResponse
 
   public function redirect404()
   {
-    //créer une instance de la classe Page que l'on stocke dans l'attribut page
     $this->page = new Page($this->app);
-    //On assigne ensuite à la page le fichier qui fait office de vue à générer
     $this->page->setContentFile(__DIR__.'/../../Errors/404.html');
-    //On ajoute un header disant que le document est non trouvé
+    
     $this->addHeader('HTTP/1.0 404 Not Found');
-    //On envoie la réponse
+    
     $this->send();
   }
   
   public function send()
   {
-   
+    // Actuellement, cette ligne a peu de sens dans votre esprit.
+    // Promis, vous saurez vraiment ce qu'elle fait d'ici la fin du chapitre
+    // (bien que je suis sûr que les noms choisis sont assez explicites !).
     exit($this->page->getGeneratedPage());
   }
 

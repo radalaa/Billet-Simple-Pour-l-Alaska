@@ -5,6 +5,7 @@ use \OCFram\BackController;
 use \OCFram\HTTPRequest;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
+use \FormBuilder\PostsFormBuilder;
 use \OCFram\FormHandler;
 
 class PostsController extends BackController
@@ -24,10 +25,13 @@ class PostsController extends BackController
 
         $listePosts = $manager->getList(0, $nombrePosts);
         $listePage = $manager->getPage(0, $nombrePosts);
-
         $listeMenu  = $manager->getMenu('page');
-
+        $count  = $manager->count('page');
         
+        if ($count == "0") {
+           $this->app->httpResponse()->redirect('/posts.html');    
+        }
+
 
         foreach ($listePosts as $posts)
         {
@@ -35,7 +39,6 @@ class PostsController extends BackController
             {
                 $debut = substr($posts->content(), 0, $nombreCaracteres);
                 $debut = substr($debut, 0, strrpos($debut, ' ')) . '...';
-
                 $posts->setContent($debut);
             }
         }
@@ -166,4 +169,50 @@ class PostsController extends BackController
         $liste  = $manager->getMenu('page');
         return $liste;
     }
+
+      public function executeSignaler(HTTPRequest $request)
+  {
+ 
+    
+   $this->page->addVar('title', 'Signaler un commentaire');
+
+    $add = false;
+    if ($request->method() == 'POST')
+    {
+        $add = true;
+      $comment = new Comment([
+        'id' => $request->getData('id'),
+        'signaler' => 1
+      ]);
+    }
+    else
+    {
+      $comment = $this->managers->getManagerOf('Comments')->get($request->getData('id'));
+    }
+
+    //$formBuilder = new CommentFormBuilder($comment);
+  
+    //$formBuilder->build();
+
+    //$form = $formBuilder->form();
+
+    //$formHandler = new FormHandler($form, $this->managers->getManagerOf('Comments'), $request);
+
+    if ($add)
+    {
+        $manager = $this->managers->getManagerOf('Comments');
+        $manager->modifySignaler($comment);
+
+      $this->app->user()->setFlash('Le commentaire a bien été signalé');
+
+      $this->app->httpResponse()->redirect('/posts.html');
+    }
+
+    $this->page->addVar('comment', $comment);
+
+    
+    
+   
+  }
+
 }

@@ -1,7 +1,7 @@
 <?php
 namespace OCFram;
 
-class HTTPRequest
+class HTTPRequest extends ApplicationComponent
 {
   public function cookieData($key)
   {
@@ -30,6 +30,7 @@ class HTTPRequest
 
   public function postData($key)
   {
+   // echo $key;
     return isset($_POST[$key]) ? $_POST[$key] : null;
   }
 

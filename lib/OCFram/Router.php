@@ -22,6 +22,8 @@ class Router
       // Si la route correspond à l'URL
       if (($varsValues = $route->match($url)) !== false)
       {
+        //echo $url;
+        //die();
         // Si elle a des variables
         if ($route->hasVars())
         {

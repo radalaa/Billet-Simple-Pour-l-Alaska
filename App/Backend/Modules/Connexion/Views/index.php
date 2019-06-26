@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Created by PhpStorm.
@@ -10,7 +9,8 @@
 		?>
           <li><a href="/">Voir le site</a></li>
           <?php if ($user->isAuthenticated()) { ?>
-           <li><a href="/admin/gestion">Gestion de blog</a></li>
+          <li><a href="/admin/index">Admin</a></li>
+          <li><a href="/admin/posts-insert.html">Ajouter</a></li>
           <li><a href="/admin/logout">Déconnexion</a></li>
           <?php } ?>
         </ul>
@@ -22,13 +22,16 @@
 
 
 
-<h2>Modifier un commentaire</h2>
+<h2>Connexion</h2>
+
 <form action="" method="post">
-  <p>
-    <?= $form ?>
-    
-    <input type="submit" value="Valider" />  <a href="commentaires" value="Annuler" />Annuler</a>
-  </p>
+  <label>Pseudo</label>
+  <input type="text" name="login" /><br />
+  
+  <label>Mot de passe</label>
+  <input type="password" name="password" /><br /><br />
+  
+  <input type="submit" value="Connexion" />
 </form>
 
 </div>

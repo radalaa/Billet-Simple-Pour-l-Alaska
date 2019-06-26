@@ -37,8 +37,6 @@
   <p style="text-align: right;"><small><em>Modifiée le <?= $posts['modified']->format('d/m/Y à H\hi') ?></em></small></p>
 <?php } ?>
 
-<p><a id="add-comment" href="commenter-<?= $posts['id'] ?>.html">Ajouter un commentaire</a></p>
-
 <?php
 if (empty($comments))
 {
@@ -57,8 +55,13 @@ foreach ($comments as $comment)
       <a href="admin/comment-update-<?= $comment['id'] ?>.html">Modifier</a> |
       <a href="admin/comment-delete-<?= $comment['id'] ?>.html">Supprimer</a>
     <?php } ?>
+     | <a href="comment-signaler-<?= $comment['id'] ?>.html">Signaler</a>
   </legend>
   <p><?= nl2br($comment['contenu']) ?></p>
+  <?php
+   if ($comment['signaler']== 1) {
+    echo '<span style="color:red;"">Commentaire signalé</span>';
+  }  ?>
 </fieldset>
 <?php
 }

@@ -28,6 +28,11 @@ class User
     return isset($_SESSION['auth']) && $_SESSION['auth'] === true;
   }
 
+  public function isNotAuthenticated(){
+    unset($_SESSION['auth']);
+    return false;
+  }
+
   public function setAttribute($attr, $value)
   {
     $_SESSION[$attr] = $value;

@@ -4,6 +4,7 @@
    <route url="/admin/pages" module="Posts" action="pages" />
   <route url="/admin/gestion" module="Posts" action="gestion" />
   <route url="/admin/chapitres" module="Posts" action="chapitres" />
+  <route url="/admin/commentaires" module="Posts" action="comments" />
   <route url="/admin/" module="Auth" action="login" />
   <route url="/admin/logout" module="Auth" action="logout" />
   <route url="/admin/page-insert\.html" module="Posts" action="insert" />
@@ -12,6 +13,7 @@
   <route url="/admin/posts-delete-([0-9]+)\.html" module="Posts" action="delete" vars="id" />
   <route url="/admin/comment-update-([0-9]+)\.html" module="Posts" action="updateComment" vars="id" />
   <route url="/admin/comment-delete-([0-9]+)\.html" module="Posts" action="deleteComment" vars="id" />
+
 
 
 </routes>

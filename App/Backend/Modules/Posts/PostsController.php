@@ -31,7 +31,7 @@ class PostsController extends BackController
     
     $this->app->user()->setFlash('Le commentaire a bien été supprimé !');
     
-    $this->app->httpResponse()->redirect('.');
+    $this->app->httpResponse()->redirect('/admin/commentaires#message');
   }
 
   public function executeIndex(HTTPRequest $request)
@@ -51,12 +51,7 @@ class PostsController extends BackController
 
   public function executeInsert(HTTPRequest $request)
   {
-
-   
-
-
     $this->processForm($request);
-
     $this->page->addVar('title', 'Ajout d\'une posts');
   }
 
@@ -77,7 +72,8 @@ class PostsController extends BackController
         'id' => $request->getData('id'),
         'auteur' => $request->postData('auteur'),
         'online' => $request->postData('online'),
-        'contenu' => $request->postData('contenu')
+        'contenu' => $request->postData('contenu'),
+        'signaler' => 0
       ]);
     }
     else
@@ -96,7 +92,7 @@ class PostsController extends BackController
     {
       $this->app->user()->setFlash('Le commentaire a bien été modifié');
 
-      $this->app->httpResponse()->redirect('/admin/');
+      $this->app->httpResponse()->redirect('/admin/commentaires');
     }
 
     $this->page->addVar('form', $form->createView());
@@ -206,6 +202,20 @@ class PostsController extends BackController
    // $this->page->addVar('nombrePosts', $manager->count());
    
   }
+
+  public function executeComments(HTTPRequest $request)
+  {
+    
+     $manager = $this->managers->getManagerOf('comments');
+      $listeCommentsignaler  = $manager->getComment(1);
+
+       $listeCommentNONsignaler  = $manager->getComment(0);
+
+    $this->page->addVar('title', 'Gestion des Commentaires');
+    $this->page->addVar('listeCommentsignaler', $listeCommentsignaler);
+    $this->page->addVar('listeCommentNONsignaler', $listeCommentNONsignaler);
+   
+  }
     public function executeChapitres(HTTPRequest $request)
   {
  
@@ -216,11 +226,12 @@ class PostsController extends BackController
 
     $this->page->addVar('listeMenu', $listeMenu);
     $this->page->addVar('listepages', $manager->getList());
-    $this->page->addVar('nombrePosts', $manager->count());
+    $this->page->addVar('nombrePosts', $manager->count('Chapitre'));
     
    
   }
 
+  
 
 
 }
