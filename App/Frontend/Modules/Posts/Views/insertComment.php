@@ -18,7 +18,7 @@
 		}
 		?>
 
- 		  <li class="active"><a href="posts.html" class="smoothscroll">Les romans</a></li>
+ 		  <li class="active"><a href="chapitres" class="smoothscroll">Les romans</a></li>
           <?php if ($user->isAuthenticated()) { ?>
           <li><a href="/admin/gestion">Admin</a></li>
           <?php } ?>

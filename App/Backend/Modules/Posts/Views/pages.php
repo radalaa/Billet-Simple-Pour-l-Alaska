@@ -43,7 +43,7 @@
         <tr>
          <td scope="row"><?= $i; ?></td>
          <td scope="row"><a href="/admin/pages" title=""><?= $pages['menu']; ?></a></td>
-         <td scope="row"><a href="posts-update-<?= $pages['id']; ?>.html" title="">Modifier</a></td>
+         <td scope="row"><a href="posts-update-<?= $pages['id']; ?>.html" class="modifier-<?= $pages['type']; ?>">Modifier</a></td>
          <td scope="row"><a href="/admin/posts-delete-<?= $pages['id']; ?>.html" title="">Supprimer</a></td>
        </tr>
     <?php

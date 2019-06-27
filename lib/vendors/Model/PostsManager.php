@@ -44,7 +44,7 @@ abstract class PostsManager extends Manager
      * Méthode renvoyant le nombre de posts total.
      * @return int
      */
-    abstract public function count($type);
+    abstract public function count();
 
     /**
      * Méthode permettant de supprimer une posts.

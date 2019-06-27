@@ -19,15 +19,15 @@
   </div>
 <div class="amin-section container">
 	<?php if ($user->hasFlash()) echo '<p style="text-align: center;">', $user->getFlash(), '</p>'; ?>
-<h3>Cliquez <span style="color: red;" id="postInsert">Ici</span> pour ajouter un chapitre </h3><br>
-<h3>Cliquez <span style="color: red;" id="pageInsert">Ici</span> pour ajouter une page</h3>
-<h2 id="titre-insert">Ajouter une page ou un chapitre</h2>
 
-<form action="" method="post">
+<h2 id="titre-insert">Ajouter une page de votre site</h2>
+<p></p>
+
+<form action="" method="post" enctype="multipart/form-data">
   <p>
     <?= $form ?>
     
-    <input type="submit" value="Ajouter" />
+    <input type="submit" value="Ajouter"  name="submit" />
   </p>
 </form>
 

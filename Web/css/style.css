@@ -43,9 +43,6 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 16px;
-
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -101,19 +98,14 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: -70px;
 	padding-top: 250px;
 	text-align:center;
-	background-attachment: relative;
+	background-attachment: fixed;
+  position: relative;
 	background-position: center center;
 	min-height: 650px;
 	width: 100%;
 
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background-size: 100%;
     background-size: cover;
 }
 
@@ -168,19 +160,13 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: -70px;
 	padding-top: 250px;
 	text-align:center;
-	background-attachment: relative;
+	background-attachment: fixed;
+  position: relative;
 	background-position: center center;
 	min-height: 650px;
 	width: 100%;
 
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
     background-size: 100%;
-
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-size: cover;
 }
 
@@ -203,19 +189,14 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: -70px;
 	padding-top: 250px;
 	text-align:center;
-	background-attachment: relative;
+	background-attachment: fixed;
+  position: relative;
 	background-position: center center;
 	min-height: 550px;
 	width: 100%;
 
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background-size: 100%;
     background-size: cover;
 }
 
@@ -237,7 +218,8 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: -70px;
 	padding-top: 250px;
 	text-align:center;
-	background-attachment: relative;
+	background-attachment: fixed;
+  position: relative;
 	background-position: center center;
 	min-height: 650px;
 	width: 100%;
@@ -324,30 +306,26 @@ h1, h2, h3, h4, h5, h6 {
   height: 24px;
   border: 3px solid #18d26e;
   border-top-color: #eee;
-  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
 }
 
 @-webkit-keyframes animate-loading {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
 
 @keyframes animate-loading {
   0% {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 
   100% {
-    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
 }
@@ -420,10 +398,27 @@ h1, h2, h3, h4, h5, h6 {
   float: left;
   padding-left: 30%;
 }
-#firsttitle,#firsttitle-label,#type,#type-label,#thirdtitle, #image, #image-label,#secondtitle,#secondtitle-label,#thirdtitle-label,#title-label,#menu-label{
-  display: none ;
+#titre-label,#titre,#firsttitle,#firsttitle-label,#type,#type-label,#thirdtitle, #image, #image-label,#secondtitle,#secondtitle-label,#thirdtitle-label,#title-label,#menu-label{
+  
 }
 .signaler{
   color: red;
 }
+#postInsert{ 
+  color: red;
+ }
+ #postInsert:hover{ 
+  cursor: pointer;
+   color: #420D09;
+ }
+
+#pageInsert{ 
+  color: red;
+ }
+
+ #pageInsert:hover{ 
+  cursor: pointer;
+  color: #420D09;
+ }
+
 

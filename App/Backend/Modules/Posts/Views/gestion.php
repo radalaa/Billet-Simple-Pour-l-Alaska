@@ -34,7 +34,7 @@
         <tr>
         <td scope="row"></td>
          <td scope="row"><a href="/admin/pages" title="">Afficher</a></td>
-         <td scope="row"><a href="/admin/chapitres" title="">Afficher</a></td>
+         <td scope="row"><a href="/admin/romans" title="">Afficher</a></td>
          <td scope="row"><a href="/admin/commentaires" title="">Afficher</a></td>
        </tbody>
      </tr>

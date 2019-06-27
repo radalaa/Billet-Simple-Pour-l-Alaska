@@ -5,7 +5,7 @@ define('DS', DIRECTORY_SEPARATOR);
 define('CORE', ROOT.DS.'core');
 define('BASE_URL', dirname(dirname($_SERVER['SCRIPT_NAME'])));
 
- ?>
+?>
 
 
 <!DOCTYPE html>
@@ -38,69 +38,69 @@ define('BASE_URL', dirname(dirname($_SERVER['SCRIPT_NAME'])));
 </head>
 
 <body>
-     <!-- Static navbar ----------------------------------------------------------------->
-  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand" href="/">Jean FORTEROCHE</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-
-     
-      <?= $content ?>
-       <?php if ($user->hasFlash()) echo '<p id="message" style="text-align: center;color:red;">', $user->getFlash(), '</p>'; ?>
-  <div id="social">
-    <div class="container">
-      <div class="row centered">
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-dribbble"></i></a>
-        </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-facebook"></i></a>
-        </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-twitter"></i></a>
-        </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-        </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-instagram"></i></a>
-        </div>
-        <div class="col-lg-2">
-          <a href="#"><i class="fa fa-tumblr"></i></a>
-        </div>
-
-      </div>
+ <!-- Static navbar ----------------------------------------------------------------->
+ <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Jean FORTEROCHE</a>
     </div>
-  </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
 
-  <div id="copyrights">
-    <div class="container">
-      <div class="credits"
-        Created with Instant template by <a href="https://dev-alaa.fr">RedOne</a>
+       
+        <?= $content ?>
+        <?php if ($user->hasFlash()) echo '<p id="message" style="text-align: center;color:red;">', $user->getFlash(), '</p>'; ?>
+        <div id="social">
+          <div class="container">
+            <div class="row centered">
+              <div class="col-lg-2">
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+              </div>
+              <div class="col-lg-2">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+              </div>
+              <div class="col-lg-2">
+                <a href="#"><i class="fa fa-twitter"></i></a>
+              </div>
+              <div class="col-lg-2">
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+              </div>
+              <div class="col-lg-2">
+                <a href="#"><i class="fa fa-instagram"></i></a>
+              </div>
+              <div class="col-lg-2">
+                <a href="#"><i class="fa fa-tumblr"></i></a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div id="copyrights">
+          <div class="container">
+            <div class="credits"
+            Created with Instant template by <a href="https://dev-alaa.fr">RedOne</a>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- JavaScript Libraries -->
-  <script src="<?= BASE_URL; ?>/Web/lib/jquery/jquery.min.js"></script>
+      <!-- JavaScript Libraries -->
+      <script src="<?= BASE_URL; ?>/Web/lib/jquery/jquery.min.js"></script>
 
-  <script src="<?= BASE_URL; ?>/Web/lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="<?= BASE_URL; ?>/Web/lib/php-mail-form/validate.js"></script>
-   <script src="<?= BASE_URL; ?>/Web/js/tinymce/jquery.tinymce.min.js"></script>
-  <script src="<?= BASE_URL; ?>/Web/js/tinymce/tinymce.min.js"></script>
+      <script src="<?= BASE_URL; ?>/Web/lib/bootstrap/js/bootstrap.min.js"></script>
+      <script src="<?= BASE_URL; ?>/Web/lib/php-mail-form/validate.js"></script>
+      <script src="<?= BASE_URL; ?>/Web/js/tinymce/jquery.tinymce.min.js"></script>
+      <script src="<?= BASE_URL; ?>/Web/js/tinymce/tinymce.min.js"></script>
 
 
-  <!-- Template Main Javascript File -->
-  <script src="<?= BASE_URL; ?>/Web/js/main.js"></script>
+      <!-- Template Main Javascript File -->
+      <script src="<?= BASE_URL; ?>/Web/js/main.js"></script>
 
-</body>
-</html>
+    </body>
+    </html>

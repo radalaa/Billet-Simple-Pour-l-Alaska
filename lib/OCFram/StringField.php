@@ -15,7 +15,7 @@ class StringField extends Field
     }
     
     $widget .= '<label id ="'.$this->id.'-label" class="label-add">'.$this->label.'</label><input value="'.$this->value.'" class ="form-control form-control-lg"
-     type="text" id ="'.$this->id.'" name="'.$this->name.'"';
+     type="'.$this->type.'" id ="'.$this->id.'" name="'.$this->name.'"';
     
     if (!empty($this->value))
     {

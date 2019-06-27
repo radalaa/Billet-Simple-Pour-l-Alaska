@@ -25,7 +25,7 @@ abstract class CommentsManager extends Manager
    * @param $posts L'identifiant de la posts dont les commentaires doivent être supprimés
    * @return void
    */
-  abstract public function deleteFromPosts($posts);
+  abstract public function deleteFromChapitres($posts);
   
   /**
    * Méthode permettant d'enregistrer un commentaire.

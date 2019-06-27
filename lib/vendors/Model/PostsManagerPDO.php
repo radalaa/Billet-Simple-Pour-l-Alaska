@@ -14,24 +14,24 @@ class PostsManagerPDO extends PostsManager
 {
     protected function add(Posts $posts)
     {
-         //$requete = $this->dao->prepare('INSERT INTO posts (firsttitle, type, content) VALUES (:firsttitle, :type, :content');
-        $requete = $this->dao->prepare('INSERT INTO posts SET menu = :menu, type = :type,firsttitle = :firsttitle,secondtitle = :secondtitle,thirdtitle = :thirdtitle,image = :image, content = :content, created = NOW(), modified = NOW()');
+       
+
+        $requete = $this->dao->prepare('INSERT INTO posts SET menu = :menu, firsttitle = :firsttitle,secondtitle = :secondtitle,thirdtitle = :thirdtitle,image = :image, content = :content, created = NOW(), modified = NOW()');
 
         $requete->bindValue(':firsttitle', $posts->firsttitle());
         $requete->bindValue(':secondtitle', $posts->secondtitle());
         $requete->bindValue(':thirdtitle', $posts->thirdtitle());
         $requete->bindValue(':menu', $posts->menu());
         $requete->bindValue(':image', $posts->image());
-        $requete->bindValue(':type', $posts->type());
         $requete->bindValue(':content', $posts->content());
        
 
         $requete->execute();
     }
 
-    public function count($type)
+    public function count()
     {
-        return $this->dao->query('SELECT COUNT(*) FROM posts WHERE type = "'. $type .'"')->fetchColumn();
+        return $this->dao->query('SELECT COUNT(*) FROM posts')->fetchColumn();
     }
 
     public function delete($id)
@@ -41,7 +41,7 @@ class PostsManagerPDO extends PostsManager
 
     public function getPage()
     {
-         $sql = 'SELECT * FROM posts WHERE type = "page"';
+         $sql = 'SELECT * FROM posts';
        
 
         $requete = $this->dao->query($sql);
@@ -63,7 +63,7 @@ class PostsManagerPDO extends PostsManager
 
     public function getList($debut = -1, $limite = -1)
     {
-        $sql = 'SELECT * FROM posts WHERE type = "Chapitre" ORDER BY id DESC';
+        $sql = 'SELECT * FROM posts ORDER BY id DESC';
         if ($debut != -1 || $limite != -1)
         {
             $sql .= ' LIMIT '.(int) $limite.' OFFSET '.(int) $debut;
@@ -86,9 +86,9 @@ class PostsManagerPDO extends PostsManager
         return $listePosts;
     }
 
-    public function getMenu($menu)
+    public function getMenu()
     {
-        $sql = 'SELECT * FROM posts WHERE type = '."'$menu'";
+        $sql = 'SELECT * FROM posts';
 
         $requete = $this->dao->query($sql);
         $requete->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, '\Entity\Posts');
@@ -126,11 +126,12 @@ class PostsManagerPDO extends PostsManager
 
     protected function modify(Posts $posts)
     {
-        $requete = $this->dao->prepare('UPDATE posts SET menu = :menu, type = :type,firsttitle = :firsttitle, content = :content, modified = NOW() WHERE id = :id');
+       
+        $requete = $this->dao->prepare('UPDATE posts SET menu = :menu, firsttitle = :firsttitle, image = :image, content = :content, modified = NOW() WHERE id = :id');
         $requete->bindValue(':menu', $posts->menu());
         $requete->bindValue(':firsttitle', $posts->firsttitle());
         $requete->bindValue(':content', $posts->content());
-        $requete->bindValue(':type', $posts->type());
+        $requete->bindValue(':image', $posts->image());
         $requete->bindValue(':id', $posts->id(), \PDO::PARAM_INT);
         $requete->execute();
     }

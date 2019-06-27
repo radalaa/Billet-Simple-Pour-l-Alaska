@@ -9,6 +9,7 @@ abstract class Field
   protected $label;
   protected $id;
   protected $name;
+  protected $type;
   protected $validators = [];
   protected $value;
   
@@ -41,6 +42,11 @@ abstract class Field
     return $this->label;
   }
   
+  public function type()
+  {
+    return $this->type;
+  }
+
   public function length()
   {
     return $this->length;
@@ -74,6 +80,13 @@ abstract class Field
     }
   }
   
+   public function setType($type)
+  {
+    if (is_string($type))
+    {
+      $this->type = $type;
+    }
+  }
   public function setLength($length)
   {
     $length = (int) $length;

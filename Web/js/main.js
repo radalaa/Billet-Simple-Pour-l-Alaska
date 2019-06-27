@@ -1,18 +1,29 @@
 
 
-jQuery(document).ready(function( $ ) {
+jQuery(document).ready(function( $e ) {
 
+
+
+$(".modifier-Chapitre").on('click', function(event){
+    //event.stopPropagation();
+    //event.stopImmediatePropagation();
+    //(... rest of your JS code)
+    $("#thirdtitle").hide();
+    $("#thirdtitle-label").hide();
+    alert('bon');
+
+});
 
 $( "#add-comment" ).click(function() {
  
-  $("#-label").css("display", "block");
+  $("#titre-label").css("display", "block");
   });
 $( "#pageInsert" ).click(function() {
  
  
   $('#type').attr('value', 'Page'); // change l'attribut src en écrasant l'ancienne valeur
   $('#titre-insert').text("Ajouter une page");
-  $('#-label').text("Titre du page");
+  $('#titre-label').text("Titre du page");
 
 
 
@@ -21,8 +32,10 @@ $( "#pageInsert" ).click(function() {
 
   //$('#firsttitle').css('display','block');
 
-$('#menu').show();
-$('#menu-label').show();
+  $('#menu').show();
+  $('#menu-label').show();
+  $('#titre-label').show();
+  $('#titre').show();
   $('#firsttitle').show();
   $('#firsttitle-label').show();
   $('#thirdtitle').show();
@@ -36,7 +49,7 @@ $('#menu-label').show();
   $('#firsttitle-label').show();
   $('#title').show();
   $('#title-label').show();
-   $('#type').show();
+  $('#type').show();
   $('#type-label').show();
   $('#-label').show();
 
@@ -47,18 +60,25 @@ $('#menu-label').show();
 });
 
 $( "#postInsert" ).click(function() {
+
+
+  $('#titre-label').show();
+  $('#titre').show();
   $('#firsttitle').show();
   $('#firsttitle-label').show();
   $('#type').show();
   $('#type-label').show();
   $('#-label').show();
   
+
+
   $('#-label').text("Titre du Chapitre");
   $('#firsttitle-label').text("Dexième titre du chapitre");
   $('#menu-label').text("Titre du chapitre");
+
+
   $('#thirdtitle').hide();
-  $('#image').hide();
-  $('#image-label').hide();
+
   $('#secondtitle').hide();
   $('#secondtitle-label').hide();
   $('#thirdtitle-label').hide();

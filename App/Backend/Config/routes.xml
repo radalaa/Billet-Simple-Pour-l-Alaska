@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <routes>
+
+<route url="/admin/romans" module="Chapitres" action="romans" />
+<route url="/admin/chapitres-update-([0-9]+)\.html" module="Chapitres" action="update" vars="id" />
+ <route url="/admin/chapitres-delete-([0-9]+)\.html" module="Chapitres" action="delete" vars="id" />
+ <route url="/admin/chapitre-insert\.html" module="Chapitres" action="insert" />
+
+  <route url="/admin/chapitres" module="Chapitres" action="chapitres" />
+
   <route url="/admin/index" module="Posts" action="index" />
    <route url="/admin/pages" module="Posts" action="pages" />
   <route url="/admin/gestion" module="Posts" action="gestion" />
-  <route url="/admin/chapitres" module="Posts" action="chapitres" />
+
+   
+
+ 
+
+  
   <route url="/admin/commentaires" module="Posts" action="comments" />
   <route url="/admin/" module="Auth" action="login" />
   <route url="/admin/logout" module="Auth" action="logout" />
@@ -17,3 +30,5 @@
 
 
 </routes>
+
+

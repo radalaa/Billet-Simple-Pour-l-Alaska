@@ -22,11 +22,11 @@
 <div class="amin-section container">
 
 <h2>Modifier</h2>
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
   <p>
     <?= $form ?>
     
-    <input type="submit" value="Modifier" />
+    <input type="submit" value="Modifier" name="submit" />
   </p>
 </form>
 

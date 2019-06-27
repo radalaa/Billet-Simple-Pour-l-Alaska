@@ -14,7 +14,7 @@
 		}
 		?>
 
- 		  <li class="active"><a href="posts.html" class="smoothscroll">Les romans</a></li>
+ 		  <li class="active"><a href="chapitres" class="smoothscroll">Les romans</a></li>
           <?php if ($user->isAuthenticated()) { ?>
           <li><a href="/admin/gestion">Admin</a></li>
           <?php } ?>
@@ -27,11 +27,12 @@
 
 <style type="text/css">
 #workwrap{
-  background: url(img/<?= $listePosts['image'] ?>.jpg) no-repeat center top;
+  background: url(img/uploads/<?= $listePosts['image'] ?>) no-repeat center top;
   margin-top: -70px;
   padding-top: 250px;
   text-align:center;
-  background-attachment: relative !important;
+  background-attachment: fixed;
+  position: relative;
   background-position: center center;
   min-height: 650px;
   width: 100%;
@@ -39,20 +40,15 @@
     margin-top: -70px;
   padding-top: 250px;
   text-align:center;
-  background-attachment: relative;
+  background-attachment: fixed;
+  position: relative;
   background-position: center center;
   min-height: 650px;
   width: 100%;
 
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  
+  background-size: 100%;
+  background-size: cover;
 } 
 </style>
   <div id="workwrap">
@@ -73,11 +69,25 @@
   <div class="container">
     <div class="row centered mt mb">
       <div class="col-lg-6  ">
-      <img class="img-responsive" src="img/me.jpg">
+      <img class="img-responsive" src="img/uploads/<?= $listePosts['image'] ?>">
       </div>
       <div class="col-lg-6 ">
 
         <p><?= nl2br($listePosts['content']) ?></p>
+      </div>
+
+      <div class="col-lg-8 col-lg-offset-2">
+
+        <?php
+        foreach ($listeChapitres as $chapitre)
+        {
+            ?>
+            <h3>Dernier chapitre</h3>
+            <p><?= strip_tags($chapitre['content']) ?></p>
+            <a href="chapitre-<?= $chapitre['id'] ?>.html">Lire la suite...</a>
+            <?php
+        }
+        ?>
 
       </div>
 

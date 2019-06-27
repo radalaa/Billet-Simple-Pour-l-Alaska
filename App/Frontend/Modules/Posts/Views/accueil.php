@@ -14,7 +14,7 @@
 		}
 		?>
 
- 		  <li class="active"><a href="posts.html" class="smoothscroll">Les romans</a></li>
+ 		  <li class="active"><a href="chapitres" class="smoothscroll">Les romans</a></li>
           <?php if ($user->isAuthenticated()) { ?>
           <li><a href="/admin/gestion">Admin</a></li>
           <?php } ?>
@@ -26,7 +26,7 @@
  <!----------------------------------------------------------------------------------->
 <style type="text/css">
 #workwrap{
-  background: url(img/<?= $listePage[0]['image'] ?>.jpg) no-repeat center top;
+  background: url(img/uploads/<?= $listePage[0]['image'] ?>) no-repeat center top;
     margin-top: -70px;
   padding-top: 250px;
   text-align:center;
@@ -71,7 +71,7 @@
   <div class="container">
     <div class="row centered mt mb">
       <div class="col-lg-6  ">
-      <img class="img-responsive" src="img/pr01.png">
+      <img class="img-responsive" src="img/uploads/<?= $listePage[0]['image'] ?>">
       </div>
       <div class="col-lg-6 ">
 
@@ -86,12 +86,12 @@
             ?>
             <h3>Dernier chapitre</h3>
             <p><?= strip_tags($posts['content']) ?></p>
-            <a href="posts-<?= $posts['id'] ?>.html">Lire la suite...</a>
+            <a href="chapitre-<?= $posts['id'] ?>.html">Lire la suite...</a>
             <?php
         }
         ?>
 
- </div>
+      </div>
 
 
     </div>

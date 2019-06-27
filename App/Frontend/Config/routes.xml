@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <routes>
-  <route url="/posts.html" module="Posts" action="romans" />
+  
   <route url="/" module="Posts" action="accueil" />
-  <route url="/posts-([0-9]+)\.html" module="Posts" action="show" vars="id"/>
   <route url="/menu-([0-9]+)\.html" module="Posts" action="showpage" vars="id"/>
-  <route url="/comment-signaler-([0-9]+)\.html" module="Posts" action="signaler" vars="id"/>
-  <route url="/commenter-([0-9]+)\.html" module="Posts" action="insertComment" vars="posts" />
+  <route url="/chapitre-([0-9]+)\.html" module="Chapitres" action="show" vars="id"/>
+  <route url="/chapitres" module="Chapitres" action="chapitres" />
+
+
+  <route url="/posts-([0-9]+)\.html" module="Posts" action="show" vars="id"/>
+  <route url="/comment-signaler-([0-9]+)\.html" module="Chapitres" action="signaler" vars="id"/>
+  <route url="/commenter-([0-9]+)\.html" module="Chapitres" action="insertComment" vars="posts" />
   <route url="/login" module="Connexion" action="login" />
-  <route url="/posts.html" module="Posts" action="romans" />
 
 
 </routes>

@@ -8,7 +8,10 @@ use \Entity\Posts;
 use \Entity\Comment;
 use \FormBuilder\CommentFormBuilder;
 use \FormBuilder\PostsFormBuilder;
+use \FormBuilder\PagesFormBuilder;
 use \OCFram\FormHandler;
+use \OCFram\Functions;
+use \OCFram\Upload;
 
 class PostsController extends BackController
 {
@@ -103,38 +106,60 @@ class PostsController extends BackController
     
     if ($request->method() == 'POST')
     {
+
+      //function upload image
+      //function insert image  
+      // passer l'objet en parametre 
+      $tableImage = array();
+      $varImage='';
+
+            foreach ($request->fileData('image') as $key => $value) {
+              echo $key . ' => ' . $value . '<br />';
+
+              $tableImage[$key] = $value;
+            }
+          //appler la function upload image
+
+        $uploadImage =  new Upload();
+
+        $varImage = $uploadImage->uploadImage($tableImage);
+
+        //requette pur chercher id
+
+
+
+        if ($varImage['error'] == 1) {
+          $this->app->user()->setFlash('Image n\'est valde  !');
+          $varChaine =  trim($request->getData('id')) ;
+        }
+      
+       
+      
+         //appler la function upload image
+
             if ($request->postData('thirdtitle')=="") {
               $thirdtitle = "__________________";
-              echo $thirdtitle;
             }else{
               $thirdtitle =  $request->postData('thirdtitle');
             }
-      
-      if ($request->postData('type') === "Chapitre") {
+
+ 
          $post = new Posts([
         'menu' => $request->postData('menu'),
-        'type' => $request->postData('type'),
-        'firsttitle' => $request->postData('firsttitle'),
-        'secondtitle' => "null",
-        'image' => "null",
-        'thirdtitle' => $thirdtitle,
-        'content' => $request->postData('content')
-      ]);
-       
-      }else{
-         $post = new Posts([
-        'menu' => $request->postData('menu'),
-        'type' => $request->postData('type'),
         'firsttitle' => $request->postData('firsttitle'),
         'secondtitle' => $request->postData('secondtitle'),
-        'image' => $request->postData('image'),
+        'image' => $varImage['name'],
         'thirdtitle' => $thirdtitle,
         'content' => $request->postData('content')
       ]);
-      }
-  
-     
+      
 
+      $functions = new Functions();
+  //$test = $request->fileData('image');
+     // $functions->debug();
+
+      
+       
       if ($request->getExists('id'))
       {
         $post->setId($request->getData('id'));
@@ -146,14 +171,16 @@ class PostsController extends BackController
       if ($request->getExists('id'))
       {
         $post = $this->managers->getManagerOf('Posts')->getUnique($request->getData('id'));
+
       }
       else
       {
         $post = new Posts;
       }
     }
-    
+         
     $formBuilder = new PostsFormBuilder($post);
+
   
     $formBuilder->build();
 
@@ -174,19 +201,7 @@ class PostsController extends BackController
 
  public function executeGestion(HTTPRequest $request)
   {
-    /*
-     $manager = $this->managers->getManagerOf('Posts');
-      $listeMenu  = $manager->getMenu('page');
-
-    $this->page->addVar('title', 'Gestion des Chapitres');
-
-    $manager = $this->managers->getManagerOf('Posts');
-
-    $this->page->addVar('listeMenu', $listeMenu);
-    $this->page->addVar('listePosts', $manager->getList());
-    $this->page->addVar('nombrePosts', $manager->count());
    
-*/
   }
 
    public function executePages(HTTPRequest $request)
@@ -199,7 +214,7 @@ class PostsController extends BackController
 
     $this->page->addVar('listeMenu', $listeMenu);
     $this->page->addVar('listepages', $manager->getPage());
-   // $this->page->addVar('nombrePosts', $manager->count());
+   
    
   }
 
@@ -226,7 +241,7 @@ class PostsController extends BackController
 
     $this->page->addVar('listeMenu', $listeMenu);
     $this->page->addVar('listepages', $manager->getList());
-    $this->page->addVar('nombrePosts', $manager->count('Chapitre'));
+    $this->page->addVar('nombrePosts', $manager->count());
     
    
   }
